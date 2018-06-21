@@ -55,7 +55,14 @@ filters = {
 }
 @client.fetch_all('characters', filters)
 @client.fetch_by_id('characters', '000', filters)
-@client.fetch_filtered_by('characters', '000', 'comics', filters)
+
+resource_params = {
+  primary_model: ''
+  id: 00
+  secondary_model: ''
+}
+eg: `GET /v1/public/primary_model/{id}/secondary_model`
+@client.fetch_filtered_by(resource_params, filters)
 ```
 *Note: Marvel API by default return 20 records and max limit should be less than 100*
 

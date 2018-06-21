@@ -16,7 +16,11 @@ module MoresMarvel
     def get_resource(resource, filters = {})
       api_end_point = "#{@base_uri}#{resource}"
       url_params = filters.empty? ? security_hash : security_hash.merge(filters)
-      restructure_response RestClient.get(api_end_point, { params: url_params })
+      begin
+        restructure_response RestClient.get(api_end_point, { params: url_params })
+      rescue RestClient::Conflict, RestClient::NotFound => errors
+        errors
+      end
     end
 
     private
