@@ -42,7 +42,6 @@ MoresMarvel Ruby client will allow to make following calls to Marvel API's all 6
 ```ruby
 @client.fetch_all('characters')
 @client.fetch_by_id('characters', '000')
-@client.fetch_filtered_by('characters', '000', 'comics')
 
 # supports filters specified by Marvel API.
 filters = {
@@ -89,4 +88,4 @@ Everyone interacting in the MoresMarvel project’s codebases, issue trackers, c
 - [x] Support GET for all 6 resources.
 - [x] Support filters specified in Marvel API.
 - [ ] Support pagination get requests.
-- [ ] Better Error Handling
+- [x] Better Error Handling
